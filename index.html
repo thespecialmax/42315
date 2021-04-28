@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"NRJS-1173a7bb9742e987ab2",applicationID:"765085969"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(7),c=e(8),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(9);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e){return!(!e||!e.protocol||"file:"===e.protocol)}t.exports=r},{}],4:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(6),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],5:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],6:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],7:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],8:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],9:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(7),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!E++){var e=x.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(h,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+x.offset],null,"api"),c("timing",["load",n]);var r=l.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===l.readyState&&o()}function o(){c("mark",["domContent",a()+x.offset],null,"api")}var a=e(2),c=e("handle"),f=e(7),u=e("ee"),s=e(5),d=e(3),p=window,l=p.document,m="addEventListener",v="attachEvent",g=p.XMLHttpRequest,w=g&&g.prototype;if(d(p.location)){NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:g,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var y=""+location,h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1208.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=t.exports={offset:a.getLastTimestamp(),now:a,origin:y,features:{},xhrWrappable:b,userAgent:s};e(1),e(4),l[m]?(l[m]("DOMContentLoaded",o,!1),p[m]("load",r,!1)):(l[v]("onreadystatechange",i),p[v]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var E=0}},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(8),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+
+<!-- Minimal -->
+<link rel="icon" type="image/png" href="images/607ca59d11c72.png">
+<link rel="icon" sizes="192x192" href="images/607ca59d11c72.png">
+<link rel="apple-touch-icon" href="images/607ca59d11c72.png">
+<meta name="msapplication-square310x310logo" content="https://king-assets.yampi.me/dooki/607ca59d11c6b/607ca59d11c72.png">
+
+<!-- Apple -->
+<link rel="apple-touch-icon" href="images/607ca59d11c72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="images/607ca59d11c72.png">
+<link rel="apple-touch-icon" sizes="120x120" href="images/607ca59d11c72.png">
+<link rel="apple-touch-icon" sizes="152x152" href="images/607ca59d11c72.png">
+
+<link rel="manifest" href="/manifest.json">
+
+<link href="//images.yampi.me" rel="dns-prefetch">
+<link href="//king-assets.yampi.me" rel="dns-prefetch">
+<link href="//cdn.yampi.io" rel="dns-prefetch">
+<link href="//awesome-assets.yampi.me" rel="dns-prefetch">
+<link href="//api.mercadopago.com" rel="dns-prefetch">
+<link href="//api.dooki.com.br" rel="dns-prefetch">
+<link href="//fonts.googleapis.com" rel="dns-prefetch">
+<link href="//www.google-analytics.com" rel="dns-prefetch">
+<link href="//www.googleadservices.com" rel="dns-prefetch">
+<link href="//googleads.g.doubleclick.net" rel="dns-prefetch">
+<link href="//bat.bing.com" rel="dns-prefetch">
+<link href="//connect.facebook.net" rel="dns-prefetch">
+<link href="//staticxx.facebook.com" rel="dns-prefetch">
+<link href="//static.xx.fbcdn.net" rel="dns-prefetch">
+<link href="//s3.amazonaws.com" rel="dns-prefetch">
+<link href="//manager.smartlook.com" rel="dns-prefetch">
+<link href="//vars.hotjar.com" rel="dns-prefetch">
+<link href="//dis.us.criteo.com" rel="dns-prefetch">
+<link href="//bam.nr-data.net" rel="preconnect">
+<link href="//www.facebook.com" rel="preconnect">
+<link href="https://bam.nr-data.net" rel="dns-prefetch">
+<link href="https://stats.g.doubleclick.net" rel="dns-prefetch">
+<link href="https://connect.facebook.net" rel="dns-prefetch">
+
+<!-- robots -->
+<meta name="robots" content="index,follow">
+
+<title>Xiami Store Br</title>
+<meta name="description" content="Trazendo a melhor tecnologia do jeito Xiami">
+<meta property="og:title" content="Xiami Store Br">
+<meta property="og:description" content="Trazendo a melhor tecnologia do jeito Xiami">
+
+<meta name="twitter:title" content="Xiami Store Br">
+<meta name="twitter:description" content="Trazendo a melhor tecnologia do jeito Xiami">
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"WebPage","name":"Xiami Store Br","description":"Trazendo a melhor tecnologia do jeito Xiami"}</script>
+
+<script>
+    window.merchant = {"id":48236,"alias":"xiaomistorebr","domain":"xiaomistorebr.com","base_url":"https:\/\/www.xiaomistorebr.com","logo_url":"https:\/\/images.yampi.me\/assets\/stores\/xiaomistorebr\/uploads\/logo\/607ca5a1a7341.png","has_mp":true,"theme":{"id":1,"alias":"rocket"},"theme_id":1,"api":{"search":"https:\/\/api.dooki.com.br\/v2\/xiaomistorebr\/public\/search"},"checkout":{"base_domain":"https:\/\/seguro.xiaomistorebr.com","skip_cart":true,"items":"https:\/\/seguro.xiaomistorebr.com\/cart\/items?store_token=f7d5500f41fcd9496659af34eb814724c532cde9","items_json":"https:\/\/seguro.xiaomistorebr.com\/cart\/json?store_token=f7d5500f41fcd9496659af34eb814724c532cde9","redirect_to":"https:\/\/seguro.xiaomistorebr.com\/cart?store_token=f7d5500f41fcd9496659af34eb814724c532cde9","orders":"https:\/\/seguro.xiaomistorebr.com\/account\/sales","store_token":"f7d5500f41fcd9496659af34eb814724c532cde9"},"manifest":{"name":"Xiami Store Br","short_name":"Xiami Store Br","start_url":"https:\/\/www.xiaomistorebr.com?utm_source=web_app_manifest","description":"Trazendo a melhor tecnologia do jeito Xiami","lang":"pt-BR"},"meta":{"title":"Xiami Store Br","description":"Trazendo a melhor tecnologia do jeito Xiami","icons":{"default":"https:\/\/king-assets.yampi.me\/dooki\/607ca59d11c6b\/607ca59d11c72.png"}},"company":{"person_type":"business","cnpj":"40698796000112","razao_social":"DM NEGOCIOS DIGITAIS","name":"Daniel Medeiros","cpf":"","phone":{"code":"19","formated_number":"(19) 9388-3292","number":"1993883292"},"whatsapp":{"formated_number":null,"number":null,"url":null},"email":"contato@xiaomistorebr.com","address":{"street":null,"number":null,"complement":null,"neighborhood":null,"city":null,"state":null,"zipcode":"24340-000","full_address":",  - "},"social":{"facebook_url":null,"instagram_url":null,"youtube_url":null,"pinterest_url":null}},"shipping":[],"pricing":{"first_order":{"min_order":null,"code":null,"value":null,"type_increment_value":null}},"payments":[{"alias":"amex","name":"American Express","icon_url":"https:\/\/icons.yampi.me\/svg\/card-amex.svg"},{"alias":"visa","name":"Visa","icon_url":"https:\/\/icons.yampi.me\/svg\/card-visa.svg"},{"alias":"diners","name":"Diners","icon_url":"https:\/\/icons.yampi.me\/svg\/card-diners.svg"},{"alias":"mastercard","name":"Mastercard","icon_url":"https:\/\/icons.yampi.me\/svg\/card-mastercard.svg"},{"alias":"discover","name":"Discover","icon_url":"https:\/\/icons.yampi.me\/svg\/card-discover.svg"},{"alias":"aura","name":"Aura","icon_url":"https:\/\/icons.yampi.me\/svg\/card-aura.svg"},{"alias":"hipercard","name":"Hipercard","icon_url":"https:\/\/icons.yampi.me\/svg\/card-hipercard.svg"},{"alias":"elo","name":"Elo","icon_url":"https:\/\/icons.yampi.me\/svg\/card-elo.svg"},{"alias":"billet","name":"Boleto Banc\u00e1rio","icon_url":"https:\/\/icons.yampi.me\/svg\/card-billet.svg"},{"alias":"hiper","name":"Hiper","icon_url":"https:\/\/icons.yampi.me\/svg\/card-hiper.svg"}],"pages":[{"name":"Pol\u00edticas de Entrega","slug":"politicas-de-entrega","path":"\/atendimento\/politicas-de-entrega"},{"name":"Pol\u00edticas de Privacidade","slug":"politicas-de-privacidade","path":"\/atendimento\/politicas-de-privacidade"},{"name":"Pol\u00edticas de Reembolso","slug":"politicas-de-reembolso","path":"\/atendimento\/politicas-de-reembolso"},{"name":"Sobre N\u00f3s","slug":"sobrenos","path":"\/atendimento\/sobrenos"}]};
+    window.themeConfig = {"page":"product","theme":{"alias":"rocket","params":{"color_general_primary":"#FF8600","color_general_secundary":"#4B4B4B","color_btn_primary_background":"#FF8600","color_btn_primary_text":"#FFFFFF","color_btn_secundary_background":"#666666","color_btn_secundary_text":"#FFFFFF","color_tag_background":"#C72E40","color_tag_text":"#FFFFFF","fonts_texts_family":"Montserrat","fonts_texts_size":14,"fonts_titles_family":"Montserrat","fonts_titles_weight":"regular","fonts_titles_uppercase":false,"fonts_buttons_uppercase":false,"buttons_general_format":"square","buttons_btn_primary_style":"solid","buttons_btn_secundary_style":"solid","grids_label_format":"square","grids_label_align":"left","grids_text_align":"left","grids_brand_enabled":false}},"sections":[{"section_alias":"header","position":0,"order":0,"visible":true,"params":{"background_color":"#FFFFFF","text_color":"#222222","show_categories":false,"search_enabled":false,"brand_align":"center","topbar_enabled":false,"topbar_show_whatsapp":false,"topbar_show_phone":false,"topbar_tracking_url":null,"highlightbar_enabled":true,"highlightbar_only_home":false,"highlightbar_text":"\ud83d\ude9b FRETE GR\u00c1TIS PARA TODO BRASIL!","highlightbar_link":null,"highlightbar_background":"#373737","highlightbar_text_color":"#FFFFFF"}},{"section_alias":"main_product_content","position":1,"order":1,"visible":true,"params":{"buy_button_text":"Comprar Agora","show_quantity_selector":true,"show_inventory_countdown":true,"show_shipping_form":false,"show_modal_after_purchase":true,"show_sku":false,"show_availability":false,"show_warranty":false}},{"section_alias":"video","position":1,"order":2,"visible":false,"params":{"title":"V\u00eddeo"}},{"section_alias":"buy_together","position":1,"order":3,"visible":false,"params":{"title":"Compre junto e economize","buy_button_text":"Comprar","show_modal_after_purchase":true}},{"section_alias":"product_specifications","position":1,"order":4,"visible":true,"params":{"title_description":"Descri\u00e7\u00e3o do produto","title_specifications":"Especifica\u00e7\u00f5es t\u00e9cnicas","title_measures":"Medidas"}},{"section_alias":"product_reviews","position":1,"order":5,"visible":true,"params":{"visualization_type":"reviews_first","show_reviews":true,"show_questions":true,"show_dates":true}},{"section_alias":"product_similars","position":1,"order":6,"visible":true,"params":{"title":"Produtos relacionados","desktop_layout":"grid","mobile_products_per_line":"2"}},{"section_alias":"footer","position":2,"order":0,"visible":true,"params":{"background_color":"#FFFFFF","text_color":"#222222","newsletter_enabled":true,"newsletter_title":"Receba novidades","description_enabled":true,"show_brand":true,"show_description":true,"categories_enabled":true,"categories_type":"all","show_pages":true,"support_enabled":true,"show_whatsapp":true,"show_phone":false,"show_email":false,"social_enabled":true,"show_facebook":true,"show_instagram":true,"show_youtube":true,"show_pinterest":true,"show_payment_icons":true,"show_security_label":true,"show_address":false,"show_business_information":false,"show_yampi_brand":false}}]};
+    window.data = {"product":{"data":{"id":4166244,"sku_id":18013880,"gift_value":0,"simple":true,"has_variations":false,"is_digital":false,"warranty":0,"custom_shipping":false,"shipping_price":0,"name":"Xiaomi Redmi Airdots  \"S\"","slug":"xiaomi-redmi-airdots-s-607ca161cc842","sku":"14:19314:193052154001","rating":5,"url":"https:\/\/www.xiaomistorebr.com\/xiaomi-redmi-airdots-s-607ca161cc842\/p","url_path":"\/xiaomi-redmi-airdots-s-607ca161cc842\/p","use_different_images":1,"brand":{"data":{"id":157459,"name":"Xiaomi Store","logo_url":null}},"images":{"data":[{"url":"https:\/\/cdn.shopify.com\/s\/files\/1\/0564\/2482\/5023\/products\/fone_2_590x_f571a560-f2dd-487d-8974-83975cc32a61_1000x1000.jpg"},{"url":"https:\/\/cdn.shopify.com\/s\/files\/1\/0564\/2482\/5023\/products\/14_193_black_1024x1024_e3c33cd6-aa65-4f12-951f-d7f9ab63c59a_1000x1000.jpg"},{"url":"https:\/\/cdn.shopify.com\/s\/files\/1\/0564\/2482\/5023\/products\/fone_4_1024x1024_1e70a421-f1e8-433c-b6d0-43be3892657a_1000x1000.jpg"},{"url":"https:\/\/cdn.shopify.com\/s\/files\/1\/0564\/2482\/5023\/products\/fone_5_1024x1024_8bd77e4d-95ab-4ce3-b792-428905de5bcf_1000x1000.jpg"}]},"prices":{"data":{"currency":"R$","price_cost":0,"price_cost_formated":"R$ 0,00","price":137,"price_formated":"R$ 137,00","price_sale":299,"price_sale_formated":"R$ 299,00","price_discount":137,"price_discount_formated":"R$ 137,00","has_promotion":true,"percent_discount":54.18,"billet":{"price":137,"price_formated":"R$ 137,00","discount_value":0,"discount_percent":"0.00","discount_text":"R$ 137,00 \u00e0 vista com 0.00% de desconto"},"installments":{"data":{"max_installment":12,"max_installment_value":15.8,"amount":189.64,"text":"12x de R$ 15,80 com juros","text_with_tax":"12x de R$ 15,80","text_discount_percent":null,"text_discount":null}}}},"flags":{"data":[]},"variations":{"data":[]},"skus":{"data":[{"id":18013880,"product_id":4166244,"sku":"14:19314:193052154001","blocked_sale":false,"title":"Xiaomi Redmi Airdots  \"S\"","availability":1,"variations":[],"days_availability_formated":"1 dia \u00fatil","price_sale":299,"price_discount":137,"combinations":"18013880","order":0,"total_in_stock":0,"allow_sell_without_customization":false,"image_reference_sku_id":null,"purchase_url":"https:\/\/seguro.xiaomistorebr.com\/r\/44TLFCU10I","prices":{"data":{"currency":"R$","price_cost":0,"price_cost_formated":"R$ 0,00","price":137,"price_formated":"R$ 137,00","price_sale":299,"price_sale_formated":"R$ 299,00","price_discount":137,"price_discount_formated":"R$ 137,00","has_promotion":true,"percent_discount":54.18,"billet":{"price":137,"price_formated":"R$ 137,00","discount_value":0,"discount_percent":"0.00","discount_text":"R$ 137,00 \u00e0 vista com 0.00% de desconto"}}},"images":{"data":[{"url":"https:\/\/cdn.shopify.com\/s\/files\/1\/0564\/2482\/5023\/products\/fone_2_590x_f571a560-f2dd-487d-8974-83975cc32a61_1000x1000.jpg"},{"url":"https:\/\/cdn.shopify.com\/s\/files\/1\/0564\/2482\/5023\/products\/14_193_black_1024x1024_e3c33cd6-aa65-4f12-951f-d7f9ab63c59a_1000x1000.jpg"},{"url":"https:\/\/cdn.shopify.com\/s\/files\/1\/0564\/2482\/5023\/products\/fone_4_1024x1024_1e70a421-f1e8-433c-b6d0-43be3892657a_1000x1000.jpg"},{"url":"https:\/\/cdn.shopify.com\/s\/files\/1\/0564\/2482\/5023\/products\/fone_5_1024x1024_8bd77e4d-95ab-4ce3-b792-428905de5bcf_1000x1000.jpg"}]},"customizations":{"data":[]}}]},"extras":{"data":{"video":"","total_in_stock":0,"for_gift":false}},"texts":{"data":{"description":"<p><img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0419\/4729\/9989\/files\/Copy_Xiaomi_Airdots_S_1_f61e800b-117c-4d84-ac8e-5297adf7606a.jpg?v=1593565300\" alt=\"Copy_Xiaomi_Airdots_S_1_f61e800b-117c-4d84-ac8e-5297adf7606a.jpg?v=1593565300\" \/><\/p><p><img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0419\/4729\/9989\/files\/Copy_Xiaomi_Airdots_S_2_87906ae2-0a58-42ac-95e9-69aedd8bb02c.jpg?v=1593565325\" alt=\"Copy_Xiaomi_Airdots_S_2_87906ae2-0a58-42ac-95e9-69aedd8bb02c.jpg?v=1593565325\" \/><img src=\"https:\/\/s3.sa-east-1.amazonaws.com\/king-assets.yampi.me\/dooki\/608057a807c7d\/608057a807c82.jpg\" alt=\"608057a807c82.jpg\" \/><img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0419\/4729\/9989\/files\/Copy_Xiaomi_Airdots_S_4_1f083b31-29fa-473e-92c3-d0c3bbd78e31.jpg?v=1593567751\" alt=\"Copy_Xiaomi_Airdots_S_4_1f083b31-29fa-473e-92c3-d0c3bbd78e31.jpg?v=1593567751\" \/><img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0419\/4729\/9989\/files\/itens_inclusos_airdots_S.jpg?v=1616286121\" alt=\"itens_inclusos_airdots_S.jpg?v=1616286121\" \/><\/p>","specifications":"","measures":""}},"seo":{"data":{"seo_title":"","seo_description":"","seo_keywords":"","canonical_url":""}},"categories":{"data":[{"id":527247,"name":"Promo\u00e7\u00f5es Exclusivas","parent_id":null,"url_path":"\/"}]},"breadcrumbs":{"data":[{"id":527247,"name":"Promo\u00e7\u00f5es Exclusivas","url_path":"\/categoria-exemplo"}]}}}};
+    window.Yampi = {
+        api_domain: 'https://api.dooki.com.br',
+        page: 'product',
+        cart_token: 'fa397420-a832-11eb-bfd9-df6482ef102a',
+        env: 'production',
+        csrf_token: 'UFS36Ywp8EH2M4EZQs6OmZSxrwbTLU8Vv2ZgfKl5',
+        session: {
+            utm_source: '',
+            utm_campaign: '',
+            utm_medium: '',
+            utm_term: '',
+            utm_content: '',
+            utm_name: '',
+            utm_email: '',
+            zipcode: '',
+            customer: {
+                name: '',
+                email: '',
+            },
+        },
+        thumbor: {
+            enabled: true,
+            url: 'https://images.yampi.io',
+            default: {"fitIn":"fit-in","filters":["background_color(white)","upscale()"]}
+        },
+        sentry: {
+            enabled: false,
+            tracing: false,
+            dsn: '',
+        },
+    };
+</script>
+
+<link rel="stylesheet" href="css/global.css" media="screen" async>
+<link rel="stylesheet" href="css/rocket.css" media="screen" async>
+
+<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        
+        // Global GA Tracker
+        ga('create', 'UA-45745009-5', {name: 'bubbTracker'});
+        ga('bubbTracker.send', 'pageview');
+        ga('bubbTracker.require', 'ecommerce', 'ecommerce.js');
+    </script>
+<script>
+    var google_tag_params = {
+      ecomm_prodid: 18013880,
+      ecomm_pagetype: 'product',
+      ecomm_totalvalue: 137
+    };
+</script>
+<script src="js/security.js" view="item" async></script>
+    
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "Xiami Store Br",
+        "logo": "https://images.yampi.me/assets/stores/xiaomistorebr/uploads/logo/607ca5a1a7341.png",
+        "alternateName": "Xiami Store Br",
+        "url": "https://www.xiaomistorebr.com",
+        "contactPoint": [
+            {
+                "@type": "ContactPoint",
+                "telephone": "+551993883292",
+                "contactType": "customer service, sales",
+                "contactOption": "TollFree",
+                "areaServed": "BR",
+                "description": "Atendimento Telefônico"
+            },
+            {
+                "@type": "PostalAddress",
+                "addressCountry": "Brasil",
+                "postalCode": "24340-000",
+                "streetAddress": ",  - "
+            }
+        ]
+    }
+</script>
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org/",
+        "@type": "Product",
+        "@id": "4166244",
+        "name": "Xiaomi Redmi Airdots  &quot;S&quot;",
+        "productID": "4166244",
+        "url": "https://www.xiaomistorebr.com/xiaomi-redmi-airdots-s-607ca161cc842/p",
+        "logo": "https://images.yampi.me/assets/stores/xiaomistorebr/uploads/logo/607ca5a1a7341.png",
+        "description": "",
+        "sku": "14:19314:193052154001",
+        "image": ["https:\/\/cdn.shopify.com\/s\/files\/1\/0564\/2482\/5023\/products\/fone_2_590x_f571a560-f2dd-487d-8974-83975cc32a61_1000x1000.jpg","https:\/\/cdn.shopify.com\/s\/files\/1\/0564\/2482\/5023\/products\/14_193_black_1024x1024_e3c33cd6-aa65-4f12-951f-d7f9ab63c59a_1000x1000.jpg","https:\/\/cdn.shopify.com\/s\/files\/1\/0564\/2482\/5023\/products\/fone_4_1024x1024_1e70a421-f1e8-433c-b6d0-43be3892657a_1000x1000.jpg","https:\/\/cdn.shopify.com\/s\/files\/1\/0564\/2482\/5023\/products\/fone_5_1024x1024_8bd77e4d-95ab-4ce3-b792-428905de5bcf_1000x1000.jpg"],
+        "itemCondition": "http://schema.org/NewCondition",
+        "brand": "",
+        "mpn": "",
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "BRL",
+            "url": "https://www.xiaomistorebr.com/xiaomi-redmi-airdots-s-607ca161cc842/p",
+            "price": 137,
+            "availability": "http://schema.org/InStock",
+            "priceValidUntil": "2021-04-28",
+            "seller": {
+                "@context": "http://schema.org",
+                "@type": "Organization",
+                "name": "Xiami Store Br",
+                "url": "https://www.xiaomistorebr.com"
+            }
+        }
+            }
+</script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" async>
+<link href="css/css2.css" rel="stylesheet" media="screen" async>
+<style>
+    :root {
+        /* Fixed variables */
+        --container-max-width: 1200px;
+        --box-product-max-width: 275px;
+        --default-background-color: #F5F5F5;
+        --default-opacity: .8;
+        --modal-transition-time: .5s;
+
+        --black-dark: #222222;
+        --black-dark-rgb: 34, 34, 34;
+        --black-medium: #666666;
+        --black-light: #999999;
+        --black-lightest: #E5E5E5;
+        --green: #00AE31;
+
+        /* Dinamic variables */
+        --color-general-primary: #FF8600;
+        --color-general-secundary: #4B4B4B;
+
+        --color-btn-primary-background: #FF8600;
+        --color-btn-primary-background-outline: #FF8600;
+        --color-btn-primary-text: #FFFFFF;
+
+        --color-btn-secundary-background: #666666;
+        --color-btn-secundary-background-outline: #666666;
+        --color-btn-secundary-text: #FFFFFF;
+
+        --discount-tag-background: #C72E40;
+        --discount-tag-color: #FFFFFF;
+
+        --fonts-texts-family: Montserrat, sans-serif;
+        --fonts-texts-size: 14px;
+
+        --fonts-titles-family: Montserrat, sans-serif;
+        --fonts-titles-weight: 400;
+        --fonts-titles-uppercase: initial;
+
+        --fonts-buttons-uppercase: initial;
+
+        --theme-border-radius: 0px;
+
+        --label-radius: 0px;
+        --label-align: left;
+
+        /* Font size with base 14px */
+        --font-10: .7143rem;
+        --font-11: .7857rem;
+        --font-12: .85rem;
+        --font-13: .9285rem;
+        --font-14: 1rem;
+        --font-15: 1.07rem;
+        --font-16: 1.1428rem;
+        --font-18: 1.286rem;
+        --font-20: 1.4285rem;
+        --font-21: 1.5rem;
+        --font-22: 1.5714rem;
+        --font-24: 1.7143rem;
+        --font-25: 1.7857rem;
+        --font-27: 1.9285rem;
+        --font-28: 2rem;
+        --font-30: 2.1428rem;
+
+        /* Font weights */
+        --font-regular: 400;
+        --font-medium: 500;
+        --font-bold: 700;
+        --font-black: 900;
+    }
+</style>
+    </head>
+<body class="xiaomistorebr product">
+
+    <div id="app">
+        
+                        <section class="section-header" id="section-header">
+    <div class="header" style="--header-font-color: #222222; --header-bg-color: #FFFFFF;">
+                    <div class="header-hightlightbar" style="background-color: #373737; color: #FFFFFF">
+                <div class="container">
+                   🚛 FRETE GRÁTIS PARA TODO BRASIL!
+                </div>
+
+                            </div>
+        
+        
+        <div class="container">
+            <div class="header-content flex -between -center">
+                <side-bar-trigger active-class="active-menu" name="menu">
+                    <svg width="15" height="11" fill="none" viewBox="0 0 15 11" class="mobile -block"><path d="M1.51 9.927c0 .367-.311.688-.72.688-.408 0-.72-.321-.72-.688 0-.39.312-.688.72-.688.409 0 .72.298.72.688zm11.9-.688H4.185c-.408 0-.72.298-.72.688 0 .367.312.688.72.688h9.225c.408 0 .72-.321.72-.688 0-.39-.312-.688-.72-.688zM.79 4.655c-.408 0-.72.298-.72.688 0 .366.312.687.72.687.409 0 .72-.32.72-.687 0-.39-.311-.688-.72-.688zm12.62 0H4.185c-.408 0-.72.298-.72.688 0 .366.312.687.72.687h9.225c.408 0 .72-.32.72-.687 0-.39-.312-.688-.72-.688zM.79.07C.383.07.07.368.07.758c0 .367.312.688.72.688.409 0 .72-.321.72-.688C1.51.368 1.2.07.79.07zm3.395 1.376h9.225c.408 0 .72-.321.72-.688 0-.39-.312-.688-.72-.688H4.185c-.408 0-.72.298-.72.688 0 .367.312.688.72.688z"/><path clip-rule="evenodd" d="M0 .758C0 .326.347 0 .79 0c.444 0 .79.326.79.758 0 .407-.344.758-.79.758-.445 0-.79-.35-.79-.758zM.79.141C.418.14.14.41.14.758c0 .326.28.617.65.617.371 0 .65-.29.65-.617C1.44.41 1.163.141.79.141zm2.605.617c0-.432.346-.758.79-.758h9.225c.443 0 .79.326.79.758 0 .407-.345.758-.79.758H4.185c-.445 0-.79-.35-.79-.758zm.79-.617c-.372 0-.65.27-.65.617 0 .326.28.617.65.617h9.225c.37 0 .65-.29.65-.617 0-.348-.278-.617-.65-.617H4.185zM0 5.343c0-.432.347-.758.79-.758.444 0 .79.326.79.758 0 .407-.344.758-.79.758C.345 6.1 0 5.75 0 5.343zm.79-.618c-.372 0-.65.27-.65.618 0 .326.28.617.65.617.371 0 .65-.291.65-.617 0-.348-.277-.618-.65-.618zm2.605.618c0-.432.346-.758.79-.758h9.225c.443 0 .79.326.79.758 0 .407-.345.758-.79.758H4.185c-.445 0-.79-.351-.79-.758zm.79-.618c-.372 0-.65.27-.65.618 0 .326.28.617.65.617h9.225c.37 0 .65-.291.65-.617 0-.348-.278-.618-.65-.618H4.185zM.79 9.31c-.372 0-.65.27-.65.617 0 .327.28.618.65.618.371 0 .65-.291.65-.618 0-.348-.277-.617-.65-.617zM0 9.927c0-.431.347-.758.79-.758.444 0 .79.327.79.758 0 .407-.344.758-.79.758-.445 0-.79-.35-.79-.758zm3.395 0c0-.431.346-.758.79-.758h9.225c.443 0 .79.327.79.758 0 .407-.345.758-.79.758H4.185c-.445 0-.79-.35-.79-.758zm.79-.617c-.372 0-.65.27-.65.617 0 .327.28.618.65.618h9.225c.37 0 .65-.291.65-.618 0-.348-.278-.617-.65-.617H4.185z"/></svg>
+                </side-bar-trigger>
+
+                <div class="logo">
+                    <a href="/" class="inline-block">
+                        <img src="images/607ca5a1a7341.png" alt="DM NEGOCIOS DIGITAIS" width="auto" height="auto">
+                    </a>
+                </div>
+                <div class="categories">
+                    
+                    
+                    <ul class="inline">
+                        
+                                            </ul>
+                </div>
+
+                
+                <div class="mini-cart-holder">
+                    <mini-cart></mini-cart>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+                                <section class="main-product-content container">
+    <div class="breadcrumbs container">
+    <ul class="inline crumbs">
+        <li>
+            <a href="/">
+                Página Inicial
+            </a>
+        </li>
+
+                    <li><span class="breadcrumb-divider"></span></li>
+            <li>
+                <a href="/categoria-exemplo">
+                                            Promoções Exclusivas
+                                    </a>
+            </li>
+                    <li><span class="breadcrumb-divider"></span></li>
+            <li>
+                <a href="#">
+                                            Xiaomi Redmi Airdots  &quot;S&quot;
+                                    </a>
+            </li>
+            </ul>
+</div>
+
+    <div class="main-product-holder flex -wrap">
+        <div class="main-product-images">
+            <product-zoom :has-video="false"></product-zoom>
+        </div>
+
+        <div class="main-product-info">
+            <product-info v-slot="{ sku, availability, warranty, price }">
+                
+                
+                
+                <h1 class="main-product-name theme-title">Xiaomi Redmi Airdots  &quot;S&quot;</h1>
+
+                <div class="main-product-prices">
+                    
+                    <div class="old-price" v-if="price.has_promotion" v-text="price.price_sale_formated">R$ 299,00</div>
+
+                    <div class="flex">
+                        <div class="actual-price price" v-text="price.price_formated">R$ 137,00</div>
+
+                        <discount-tag class="-main-product" :value="price.percent_discount"></discount-tag>
+                    </div>
+
+                    <installments :show-more="true" :loader-height="24"></installments>
+                </div>
+
+                <product-customizations buy-button-text="Comprar Agora" :show-quantity-selector="true" :show-inventory-countdown="true" :show-shipping-form="false" :show-modal-after-purchase="true"></product-customizations>
+            </product-info>
+        </div>
+    </div>
+
+    <product-groups></product-groups>
+
+</section>
+                                                        <section class="product-specifications">
+
+    
+                    <div class="container">
+                <div class="-holder">
+                    <div class="theme-title">
+                        Descrição do produto
+                    </div>
+
+                    <div class="-content editor-theme">
+                        <p><custom-image :thumbor-enabled="false" src="https://cdn.shopify.com/s/files/1/0419/4729/9989/files/Copy_Xiaomi_Airdots_S_1_f61e800b-117c-4d84-ac8e-5297adf7606a.jpg?v=1593565300" alt="Copy_Xiaomi_Airdots_S_1_f61e800b-117c-4d84-ac8e-5297adf7606a.jpg?v=1593565300"></custom-image></p><p><custom-image :thumbor-enabled="false" src="https://cdn.shopify.com/s/files/1/0419/4729/9989/files/Copy_Xiaomi_Airdots_S_2_87906ae2-0a58-42ac-95e9-69aedd8bb02c.jpg?v=1593565325" alt="Copy_Xiaomi_Airdots_S_2_87906ae2-0a58-42ac-95e9-69aedd8bb02c.jpg?v=1593565325"></custom-image><custom-image :thumbor-enabled="false" src="https://s3.sa-east-1.amazonaws.com/king-assets.yampi.me/dooki/608057a807c7d/608057a807c82.jpg" alt="608057a807c82.jpg"></custom-image><custom-image :thumbor-enabled="false" src="https://cdn.shopify.com/s/files/1/0419/4729/9989/files/Copy_Xiaomi_Airdots_S_4_1f083b31-29fa-473e-92c3-d0c3bbd78e31.jpg?v=1593567751" alt="Copy_Xiaomi_Airdots_S_4_1f083b31-29fa-473e-92c3-d0c3bbd78e31.jpg?v=1593567751"></custom-image><custom-image :thumbor-enabled="false" src="https://cdn.shopify.com/s/files/1/0419/4729/9989/files/itens_inclusos_airdots_S.jpg?v=1616286121" alt="itens_inclusos_airdots_S.jpg?v=1616286121"></custom-image></p>
+                    </div>
+                </div>
+            </div>
+        
+    
+        
+    
+        
+    
+</section>
+                                <section class="product-reviews container">
+    <product-reviews order="reviews_first" :show-reviews="true" :show-questions="true" :show-dates="true" icon="https://king-assets.yampi.me/dooki/607ca59d11c6b/607ca59d11c72.png" :limit="999"></product-reviews>
+</section>
+                                <product-similars class="collection" title="Produtos relacionados" desktop-layout="grid" :products-per-line="2">
+    <div class="box-product " slot-scope="data">
+    <a :href="data.product.url_path" class="block -clean">
+        <div class="holder-image relative-tags">
+            <discount-tag :value="data.product.prices.data.percent_discount"></discount-tag>
+
+            <div class="image-ratio">
+                                    <custom-image v-if="data.product.images" :src="data.product.images.data[0] ? data.product.images.data[0].url : 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'" :thumbor-enabled="data.product.images.data[0] ? true : false" :thumbor="{ resize: '275x275' }" :alt="data.product.name" class="-loading"></custom-image>
+                
+                <flags :product="data.product"></flags>
+            </div>
+        </div>
+
+        <div class="holder-info">
+            
+            <div class="product-name ellipsis-multiline l2">
+                {{ data.product.name }}
+            </div>
+
+            <div class="product-prices">
+                <div class="flex -vcenter -wrap">
+                                            <span class="product-old-price old-price" v-if="data.product.prices.data.has_promotion">
+                            {{ data.product.prices.data.price_sale_formated }}
+                        </span>
+                                        <span class="product-actual-price price">
+                        {{ data.product.prices.data.price_formated }}
+                    </span>
+                </div>
+
+                <installments :product="data.product"></installments>
+            </div>
+        </div>
+    </a>
+</div>
+</product-similars>
+                                <vue-section class="
+        footer 
+        
+        
+    " style="
+        --footer-font-color: #222222; 
+        --footer-bg-color: #FFFFFF; 
+        --footer-opacity-color: rgba(34, 34, 34, 0.5);
+        --footer-hr-color: rgba(34, 34, 34, 0.1);
+    " :delay="300">
+        <div class="holder-newsletter container">
+        <div class="-title theme-title">
+            Receba novidades
+        </div>
+
+        <newsletter></newsletter>
+    </div>
+
+    <div class="holder-footer">
+        <div class="container">
+            <div class="holder-footer-section section-1 flex -hcenter">
+                                    <div class="holder-footer-logo">
+                                                    <div class="logo">
+                                <img src="images/607ca5a1a7341.png" alt="DM NEGOCIOS DIGITAIS" width="auto" height="auto">
+                            </div>
+                        
+                                                    <div class="-description">
+                                Trazendo a melhor tecnologia do jeito Xiami
+                            </div>
+                                            </div>
+                
+                <div class="holder-footer-info flex">
+                                            <div class="-categories">
+                            <div class="-title">Categorias</div>
+                            <expandable title="Categorias">
+                                <ul>
+                                                                            <li><a href="/categoria-exemplo">Promoções Exclusivas</a></li>
+                                                                            <li><a href="/home-page">Home page</a></li>
+                                                                    </ul>
+                            </expandable>
+                        </div>
+                    
+                                            <div class="-pages">
+                            <div class="-title">Informações</div>
+                            <expandable title="Informações">
+                                <ul>
+                                                                            <li><a href="/atendimento/politicas-de-entrega">Políticas de Entrega</a></li>
+                                                                            <li><a href="/atendimento/politicas-de-privacidade">Políticas de Privacidade</a></li>
+                                                                            <li><a href="/atendimento/politicas-de-reembolso">Políticas de Reembolso</a></li>
+                                                                            <li><a href="/atendimento/sobrenos">Sobre Nós</a></li>
+                                                                    </ul>
+                            </expandable>
+                        </div>
+                    
+                    
+                                    </div>
+            </div>
+
+                            <div class="holder-footer-section section-2">
+                                            <span class="holder-cards">
+                            <ul class="inline">
+                                                                    <li>
+                                        <img v-lazyload alt="amex" width="35" height="24" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://icons.yampi.me/svg/card-amex.svg">
+                                    </li>
+                                                                    <li>
+                                        <img v-lazyload alt="visa" width="35" height="24" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://icons.yampi.me/svg/card-visa.svg">
+                                    </li>
+                                                                    <li>
+                                        <img v-lazyload alt="diners" width="35" height="24" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://icons.yampi.me/svg/card-diners.svg">
+                                    </li>
+                                                                    <li>
+                                        <img v-lazyload alt="mastercard" width="35" height="24" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://icons.yampi.me/svg/card-mastercard.svg">
+                                    </li>
+                                                                    <li>
+                                        <img v-lazyload alt="discover" width="35" height="24" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://icons.yampi.me/svg/card-discover.svg">
+                                    </li>
+                                                                    <li>
+                                        <img v-lazyload alt="aura" width="35" height="24" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://icons.yampi.me/svg/card-aura.svg">
+                                    </li>
+                                                                    <li>
+                                        <img v-lazyload alt="hipercard" width="35" height="24" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://icons.yampi.me/svg/card-hipercard.svg">
+                                    </li>
+                                                                    <li>
+                                        <img v-lazyload alt="elo" width="35" height="24" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://icons.yampi.me/svg/card-elo.svg">
+                                    </li>
+                                                                    <li>
+                                        <img v-lazyload alt="billet" width="35" height="24" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://icons.yampi.me/svg/card-billet.svg">
+                                    </li>
+                                                                    <li>
+                                        <img v-lazyload alt="hiper" width="35" height="24" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://icons.yampi.me/svg/card-hiper.svg">
+                                    </li>
+                                                            </ul>
+                        </span>
+                    
+                                            <i class="icon icon-security"></i>
+                                    </div>
+            
+            <div class="holder-footer-section section-3 flex -hcenter">
+                
+                            </div>
+        </div>
+    </div>
+</vue-section>
+            
+    <smooth-scroll :display-at="300">
+        <template slot-scope="{ scroll }">
+            <div class="scroll-top" @click="scroll">
+                <i class="icon icon-scroll-top"></i>
+            </div>
+        </template>
+    </smooth-scroll>
+    </div>
+
+    <script src="js/manifest.js"></script>
+<script src="js/vendor.js"></script>
+<script src="js/app.js"></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"NRJS-1173a7bb9742e987ab2","applicationID":"765085969","transactionName":"NlQEYUJSDBFUBkdZWQ8eJ1ZEWg0MGgJWXlMTUBJQVAlYIXhUZUBSCmUBXQkEMBJCAQ==","queueTime":0,"applicationTime":22,"atts":"GhMHFwpIHx8=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
